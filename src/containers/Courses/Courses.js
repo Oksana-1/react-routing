@@ -11,7 +11,6 @@ class Courses extends Component {
             { id: 3, title: 'PWA - The Complete Guide' }
         ]
     }
-
     render () {
         return (
             <div>
@@ -19,7 +18,12 @@ class Courses extends Component {
                 <section className="Courses">
                     {
                         this.state.courses.map( course => {
-                            return <Link to={`/courses/${course.id}`} className="Course" key={course.id}>{course.title}</Link>;
+                            return <Link
+                                to={ `${this.props.match.url}/${course.id}`}
+                                className="Course"
+                                key={course.id}>
+                                    {course.title}
+                            </Link>;
                         } )
                     }
                 </section>
