@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 class Course extends Component {
+    state ={
+        courseTitle: ''
+    }
     componentDidMount() {
+        const query = new URLSearchParams(this.props.location.search);
+        for (let param of query.entries()) {
+           this.setState({courseTitle:param[1]})
+        }
     }
 
     render () {
         const id = this.props.match.params.id;
         return (
             <div>
-                <h1>_COURSE_TITLE_</h1>
+                <h1>{this.state.courseTitle}</h1>
                 <p>You selected the Course with ID: {id}</p>
             </div>
         );
