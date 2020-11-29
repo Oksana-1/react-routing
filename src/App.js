@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Switch, NavLink} from "react-router-dom";
+import {BrowserRouter, Route, Switch, NavLink, Redirect} from "react-router-dom";
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
@@ -22,6 +22,7 @@ class App extends Component {
                     <Route path="/courses" component={Courses}/>
                     <Route component={NotFound}/>
                 </Switch>
+                <Redirect from="/al-courses" to="/courses"/>
             </React.Fragment>
         </BrowserRouter>
         <ol style={{textAlign: 'left'}}>
